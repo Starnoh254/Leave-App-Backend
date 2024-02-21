@@ -1,5 +1,5 @@
 function managerSignIn(req , res){
-
+    // const {email , password} = req.body;
 }
 
 function viewAllLeaveApplications(req ,res){
