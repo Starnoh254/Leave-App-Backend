@@ -1,8 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { employeeSignin, applyForLeave } = require("../controllers/employee");
+const asyncHandler = require("express-async-handler");
 
-router.post("/signin" , employeeSignin);
-router.post("/leaveApplication",applyForLeave)
+const {
+  employeeSignin,
+  applyForLeave,
+  employeeSignUp,
+} = require("../controllers/employee");
 
-module.exports = router
+router.post("/signin", asyncHandler(employeeSignin));
+router.post("/leaveApplication", applyForLeave);
+router.post("/signup", asyncHandler(employeeSignUp));
+
+module.exports = router;

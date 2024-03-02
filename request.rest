@@ -1,0 +1,18 @@
+POST http://localhost:4000/employee/signup
+Content-Type: application/json
+
+{
+    "firstName" : "John",
+    "lastName" : "Doe",
+    "email": "john@gmail.com",
+    "password" : "john254"
+}
+
+###
+POST http://localhost:4000/employee/signin
+Content-Type: application/json
+
+{
+    "email" : "john@gmail.com",
+    "password" : "john254"
+}
