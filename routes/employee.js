@@ -9,7 +9,7 @@ const {
 } = require("../controllers/employee");
 
 router.post("/signin", asyncHandler(employeeSignin));
-router.post("/leaveApplication", applyForLeave);
+router.post("/leaveApplication", asyncHandler(applyForLeave));
 router.post("/signup", asyncHandler(employeeSignUp));
 
 module.exports = router;

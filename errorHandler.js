@@ -1,4 +1,4 @@
 module.exports = function(err , req , res , next){
-    res.status(err.statusCode).json({error : err.type || 'An error occurred'})
+    res.status(err.statusCode || 500).json({error : err || 'An error occurred'})
     next()
 }
