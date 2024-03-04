@@ -1,15 +1,14 @@
+require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const employeesRouter = require('./routes/employee')
 const bodyParser = require('body-parser')
-const errorHandler = require('./errorHandler')
+const errorHandler = require('./utils/errorHandler')
 
 
-const MONGODB_URL =
-  "mongodb://127.0.0.1:27017/leave?directConnection=true&serverSelectionTimeoutMS=2000";
-const PORT = 4000;
+const PORT = process.env.PORT || 3000
 mongoose
-  .connect(MONGODB_URL)
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("MongoDB Connected Successfully!");
   })
@@ -22,6 +21,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/employee', employeesRouter);
 app.use(errorHandler)
-app.listen(PORT, () => {
+app.listen(PORT , () => {
   console.log(`Server is running on port ${PORT}`);
 });

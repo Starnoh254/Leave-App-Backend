@@ -1,5 +1,5 @@
 const Employee = require("../models/employeeModel");
-const  generateAccessToken  = require('../generateAccessToken')
+const  generateAccessToken  = require('../utils/generateAccessToken')
 
 async function employeeSignin(req, res) {
   
