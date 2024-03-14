@@ -1,19 +1,27 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const employeeSchema = new Schema(
-  {
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, required: true, lowercase: true },
-    password: { type: String, required: true },
-  },
 
+const employeeSchema = new mongoose.Schema(
   {
-    collection: "employees",
+    firstName: { type: String, required: true, trim: true },
+    lastName: { type: String, required: true, trim: true },
+    userName: { type: String, required: true, unique: true, trim: true },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    password: { type: String, required: true, minlength: 8 },
+    joiningDate: { type: Date, required: true },
+    phoneNumber: { type: Number, required: true, unique: true },
+    company: { type: String, required: true, trim: true },
+    department: { type: String, required: true, trim: true },
+    designation: { type: String, required: true, trim: true },
   },
-
   {
     timestamps: true,
+    collection: "employees",
   }
 );
 
