@@ -27,8 +27,20 @@ function applyForLeave(req, res) {
   // endpoint for processing employee leave application
 }
 
+function uploadPhoto(req, res) {
+  const uploadedPhoto = req.file;
+  if (!uploadedPhoto) {
+    return res.status(400).json({
+      error: "No file provided",
+    });
+  } else {
+    return res.status(200).json(req.file);
+  }
+}
+
 module.exports = {
   employeeSignin,
   applyForLeave,
   employeeSignUp,
+  uploadPhoto,
 };

@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const employeesRouter = require('./routes/employee')
+const managerRouter = require('./routes/manager')
 const bodyParser = require('body-parser')
 const errorHandler = require('./utils/errorHandler')
 
@@ -19,6 +20,7 @@ const app = express();
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/manager', managerRouter)
 app.use('/employee', employeesRouter);
 app.use(errorHandler)
 app.listen(PORT , () => {

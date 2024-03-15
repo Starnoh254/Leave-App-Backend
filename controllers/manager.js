@@ -33,3 +33,8 @@ async function getAllEmployees(req, res) {
   const employees = await Employee.find();
   return res.status(200).json({ employees });
 }
+
+module.exports = {
+  managerSignIn,
+  getAllEmployees
+}
