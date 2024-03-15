@@ -16,3 +16,7 @@ Content-Type: application/json
     "email" : "john@gmail.com",
     "password" : "john254"
 }
+
+###
+
+GET http://localhost:4000/manager/getEmployees
